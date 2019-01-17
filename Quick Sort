@@ -1,0 +1,46 @@
+package sortingPractice;
+
+public class QuickSort {
+
+	public static void main(String args[]) {
+		int[] arr = new int[] {32,45,67,53,10,90,98,76,37};
+		int len = arr.length;
+		
+		QuickSort quickSort = new QuickSort();
+		quickSort.quickSort(arr,0,len-1);
+		
+		for(int i=0;i<len;i++) {
+			System.out.println(arr[i]);
+		}
+	}
+	
+	public void quickSort(int[] arr, int start, int end) {
+		if(start<end) {
+			int p = partition(arr,start,end);
+			quickSort(arr,start,p-1);
+			quickSort(arr,p+1,end);
+		}
+	}
+	
+	
+	public int partition(int[] arr, int start, int end) {
+		int p = arr[end];
+		int k = start-1;
+		
+		for(int i=start;i<end;i++) {
+			if(arr[i]<p) {
+				k++;
+				int temp = arr[k];
+				arr[k] = arr[i];
+				arr[i] = temp;
+			}
+		}
+		
+		k++;
+		int temp = arr[k];
+		arr[k] = arr[end];
+		arr[end] = temp;
+		
+		return k;
+	}
+}
