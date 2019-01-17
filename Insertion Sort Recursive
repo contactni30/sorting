@@ -1,0 +1,31 @@
+package sortingPractice;
+
+public class InsertionSortRecursive {
+
+	public static void main(String args[]) {
+		int[] arr = new int[] {69,98,78,56,12,23,41,18};
+		int len = arr.length;
+		
+		InsertionSortRecursive insertion = new InsertionSortRecursive();
+		insertion.sort(arr,1,len-1);
+		
+		for(int i=0;i<len;i++) {
+			System.out.println(arr[i]);
+		}
+	}
+	
+	public void sort(int[] arr, int start, int end) {
+		if(start<=end) {
+			int x = arr[start];
+			int m = start;
+			for(int i=start-1;i>=0;i--) {
+				if(x<arr[i]) {
+					arr[i+1] = arr[i];
+					m = i;
+				}
+			}
+			arr[m] = x;
+			sort(arr,start+1,end);
+		}
+	}
+}
