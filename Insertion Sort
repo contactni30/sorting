@@ -1,0 +1,33 @@
+package sortingPractice;
+
+public class InsertionSort {
+
+	public static void main(String args[]) {
+		int[] arr = new int[] {56,90,89,12,34,60,8,44};
+		int len = arr.length;
+		
+		InsertionSort insertion = new InsertionSort();
+		insertion.sort(arr,len);
+		
+		for(int i=0;i<len;i++) {
+			System.out.println(arr[i]);
+		}
+	}
+	
+	public void sort(int[] arr, int len) {
+		
+		for(int i=1;i<len;i++) {
+			int x = arr[i];
+			int m = i;
+			for(int j=i-1;j>=0;j--) {
+				if(x<arr[j]) {
+					arr[j+1] = arr[j];
+					m = j;
+				}
+			}
+			if(m!=i) {
+				arr[m] = x;
+			}
+		}
+	}
+}
