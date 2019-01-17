@@ -1,0 +1,34 @@
+package sortingPractice;
+
+public class SelectionSort {
+
+	public static void main(String args[]) {
+		int[] arr = new int[] {99,10,45,31,82,76,28,54,67};
+		int len = arr.length;
+		
+		SelectionSort selection = new SelectionSort();
+		selection.sort(arr,len);
+		
+		for(int i=0;i<len;i++) {
+			System.out.println(arr[i]);
+		}
+	}
+	
+	
+	public void sort(int[] arr, int len) {
+		
+		for(int i=0;i<len;i++) {
+			int x = i;
+			for(int j=i+1;j<len;j++) {
+				if(arr[x]>arr[j]) {
+					x = j;
+				}
+			}
+			if(x!=i) {
+				int temp = arr[i];
+				arr[i] = arr[x];
+				arr[x] = temp;
+			}
+		}
+	}
+}
